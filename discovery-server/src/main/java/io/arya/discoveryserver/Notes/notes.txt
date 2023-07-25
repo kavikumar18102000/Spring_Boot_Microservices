@@ -1,0 +1,7 @@
+
+Before running the server, add the following to the application. properties file. And also make sure you annotated the
+application "@EnableEurekaServer"
+
+        server.port=8761
+        eureka.client.register-with-eureka=false
+        eureka.client.fetch-registry=false

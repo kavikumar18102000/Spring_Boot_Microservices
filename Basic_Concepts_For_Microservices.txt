@@ -1,0 +1,58 @@
+what is a microservice?
+--> In software engineering, a microservice architecture is a variant of the service-oriented architecture structural style. It is an architectural pattern that arranges an application as a collection of loosely coupled, fine-grained services, communicating through lightweight protocols. One of its goals is that teams can develop and deploy their services independently of others. This is achieved by the reduction of several dependencies in the code base, allowing developers to evolve their services with limited restrictions from users, and for additional complexity to be hidden from users.[1] As a consequence, organizations are able to develop software with fast growth and size, as well as use off-the-shelf services more easily. Communication requirements are reduced. These benefits come at a cost to maintaining the decoupling. Interfaces need to be designed carefully and treated as a public API. One technique that is used is having multiple interfaces on the same service, or multiple versions of the same service, so as to not disrupt existing users of the code.
+
+What are the benefits of Microservices?
+--> The benefit of decomposing an application into different smaller services are numerous:
+
+Modularity: This makes the application easier to understand, develop, test, and become more resilient to architecture erosion.[6] This benefit is often argued in comparison to the complexity of monolithic architectures.
+
+Scalability: Since microservices are implemented and deployed independently of each other, i.e. they run within independent processes, they can be monitored and scaled independently.
+
+Integration of heterogeneous and legacy systems: microservices is considered a viable means for modernizing existing monolithic software application.[37][38] There are experience reports of several companies who have successfully replaced (parts of) their existing software with microservices or are in the process of doing so.The process for software modernization of legacy applications is done using an incremental approach.
+
+Distributed development: it parallelizes development by enabling small autonomous teams to develop, deploy and scale their respective services independently.[41] It also allows the architecture of an individual service to emerge through continuous refactoring.Microservice-based architectures facilitate continuous integration, continuous delivery and deployment.
+
+
+Disadvantages of Microservices are:
+-> Microservices has all the associated complexities of the distributed system.
+-> There is a higher chance of failure during communication between different services.
+-> Difficult to manage a large number of services.
+-> The developer needs to solve the problem, such as network latency and load balancing.
+   Complex testing over a distributed environment.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+What is Restemplate?
+--> 'RestTemplate' is a synchronous REST client provided by the core Spring Framework.
+
+Due to high traffic and quick access to services, REST APIs are getting more popular. REST is not a protocol or a way of standard, rather it is a set of architectural constraints. It is also called RESTful API or web API. When a client request is made, it just transfers a representation of the state of the resource to the requester or at the endpoint via HTTP. This information delivered to the client can be in several formats as follows:
+
+	* JSON (JavaScript Object Notation )
+	* XML
+	* HTML
+	* XLT
+	* Python
+	* PHP
+	*Plain text
+For a long time, Spring has been offering RestTemplate as a web client abstraction. Under the hood, RestTemplate uses the Java Servlet API, which is based on the thread-per-request model.
+This means that the thread will block until the web client receives the response. The problem with the blocking code is due to each thread consuming some amount of memory and CPU cycles.
+
+
+What is WebClient?
+--> A web client is an application that communicates with a web server, using Hypertext Transfer Protocol (HTTP). The basic objective of the web server is to store, process and deliver web pages to the users. Web browser is an example of a web client.
+
+On the other side, WebClient uses an asynchronous, non-blocking solution provided by the Spring Reactive framework.
+
+While RestTemplate uses the caller thread for each event (HTTP call), WebClient will create something like a “task” for each event. Behind the scenes, the Reactive framework will queue those “tasks” and execute them only when the appropriate response is available.
+
+The Reactive framework uses an event-driven architecture. It provides means to compose asynchronous logic through the Reactive Streams API. As a result, the reactive approach can process more logic while using fewer threads and system resources, compared to the synchronous/blocking method.
+
+WebClient is part of the Spring WebFlux library. So, we can also write client code using a functional, fluent API with reactive types (Mono and Flux) as a declarative composition.
+
+
+Difference between restemplate and webclient?
+--> RestTemplate uses Java Servlet API and is therefore synchronous and blocking. Conversely, WebClient is asynchronous and will not block the executing thread while waiting for the response to come back. The notification will be produced only when the response is ready.
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
