@@ -88,12 +88,14 @@ public class MovieCatalogController {
         UserRating listUserRating = restTemplate.getForObject("http://rating-data-service/rating/user/" + userid,
                 UserRating.class);
 
+
         return listUserRating.getUserRating().stream().map(rating -> { //iterating over a list of user ratings.
             //for each movie id call the info service
             Movie movie = restTemplate.getForObject("http://movie-info-service/movie/" + rating.getMovieId(),
                     Movie.class);
 
             //put them all together
+
             return new catalogItem(movie.getMovieId(),"test",rating.getRating());
         }).collect(Collectors.toList());
 
@@ -125,5 +127,10 @@ public class MovieCatalogController {
         }).collect(Collectors.toList());
 
          */
+    }
+
+    @GetMapping("/home")
+    public String home(){
+        return "Hello I am catalog Service..";
     }
 }
